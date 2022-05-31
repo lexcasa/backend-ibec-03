@@ -50,3 +50,14 @@ BASICS:
         Algoritmo: 
             -> Que la primera letra del nombre y apellido sea igual
             a la letra de nombre y apellido del Input
+
+    EJERCICIO RAPIDO #1: Buscar personas por rango de edad
+        -> Ejemplo quiero buscar entre 10 y 18 anios
+        -> Input: [10, 18]
+        -> Output va a ser un array: {
+            personas: [
+                {...},
+                ...
+            ]
+        }
+        -> Agreguen la funcion de busqueda en el servicio que ya existe

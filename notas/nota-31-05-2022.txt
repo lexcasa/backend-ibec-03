@@ -1,0 +1,52 @@
+BASICS: 
+
+    -> Setup de proyecto de NodeJS
+    -> Correr el proyecto en la cmd
+    -> Crear un modulo re-utilizable y como probar
+
+
+
+    1. Setup de proyecto de NodeJS
+
+        -> Crear una carpeta del proyecto
+        -> npm init
+            -> Responder las preguntas para generar el package.json
+        -> Creamos un archivo: 
+            .gitignore
+                -> va a tener las siguientes lineas: 
+                    node_modules
+                    package-lock.json
+        -> Crear un archivo: app.js (o index.js)
+        -> Agregar un console.log("Hola Mundo")
+        -> Corremos nuestro back: 
+            -> node app.js
+                -> Lo que esperamos es que muestre en la terminal: "Hola Mundo"
+
+    EJEMPLO: Servicio para buscar una persona por sus iniciales
+        -> Iniciales --> Nombre, Apellido
+        Persona: {
+            Nombre: "Alex",
+            Apellido: "Casadevall"
+        }
+
+        Esa persona que quiero encontrar esta dentro de un array de personas
+
+        Personas: [{...}, ... ]
+
+        Input: {
+            iniciales: {
+                nombre: 'A',
+                apellido: 'C'
+            }
+        }
+
+        Output: {
+            personas: [
+                {...},
+                ...
+            ]
+        }
+
+        Algoritmo: 
+            -> Que la primera letra del nombre y apellido sea igual
+            a la letra de nombre y apellido del Input

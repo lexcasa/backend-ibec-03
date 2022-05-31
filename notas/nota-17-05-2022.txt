@@ -1,0 +1,71 @@
+Backend
+    -> Desarrollo de API's
+    -> Documentacion con POSTMAN
+    -> Aprobacion: 
+        -> Entrega final: 1 semana antes del ultimo dia
+        -> Prueba final: ultimo dia de clase
+    
+    -> Objetivo: 
+        -> Operaciones CRUD
+        -> Gestion de base de datos
+        -> Middleware
+----
+
+OVERVIEW:
+    -> Herramientas para Dev. Jr Backend (FullStack)
+
+    Dos caminos: 
+        -> Primeros pasos del mercado laboral -> Fulltime
+        -> Transicion de rubro -> +30 o profesionales migrar a la TIC
+
+    UY Jr/Entry-Level: $ 21120 L-V 9-18
+        -> Semi-presencial
+        -> Presencial
+        -> Remoto
+
+CUIDADO:
+    -> Agencias (Digital, Diseno, Marketing) / Corps
+        -> Equipos de IT: Chicos o personal que no se recicla - 2%
+
+    -> Startups/Consultoras IT
+        -> Consultoras IT: Crecimiento mas organico, mas seguro, buenos mentores, mas lento
+        -> Startups: mas rapido, mas desorganizados, deudas tecnicas, excelentes mentores
+
+    -> Entry/Jr -> MidLevel -> Sr
+    -> jr -> Mid 3 a 4 anios
+    -> mid -> sr +6 anios
+
+    Uruguay: 
+
+        -> MercadoLibre
+        -> Tryolabs
+        -> Octobot
+        -> Technisys
+        -> Globant
+        -> Arkano
+        -> December labs
+        -> dlocal
+        -> PedidosYa
+
+    FAANG: Facebook, Amazon, Apple, Netflix, Google
+        -> Tesla, Coinbase, Binance
+
+    Desarrollo: 
+
+        -> FrontEnd
+            -> React, Vue, Svelte, Angular, etc
+            -> Graphql, Apollo
+        -> FullStack
+            -> API Rest, Graphql
+            -> NodeJS
+            -> MYSQL/ NoSQL
+            -> React, Vue, Svelte, Angular, etc
+            -> DevOps: CI/CD - Jenkins
+        -> DevOps
+            -> CI/CD - Jenkins
+            -> Docker
+            -> Kubernets
+            -> Linux 
+        -> Machine Learning / Deep learning
+            -> Python + modelos de machine learning
+        -> Dev Blockchain + web3

@@ -1,0 +1,151 @@
+BACKEND
+
+    -> NodeJS
+        -> expressjs
+    -> MYSQL
+
+    Test / documentacion
+    -> Postman
+
+ API: Application Programming interface
+
+    HOY: 
+
+    [ Base de datos ] ---- [ API ] ---- [Web App | App Cliente]
+
+    ANTES
+
+    App Cliente [ Base de datos + Pagina web en X lang. ]
+
+        -> Conectar ese negocio con una app mobile
+        -> Generar un web service
+            -> Transformar la logica de negocio de la web en un servicio web
+                -> Expone cierto std de datos que puede ser consumido por una app mob
+                -> std: XML
+                -> XML cuesta mas "traducirlo" a lng de maquina
+
+    std: JSON
+        -> Interseccion de los lang de programacion de la epoca
+        -> Resulto en una notacion mas sencilla para los parsers (traductores de std datos a lng nativo)
+
+
+    Ejemplo - Persona: 
+        -> Nombre, Apellido
+        -> Alex, Casadevall
+
+    XML:
+        <Persona>
+            <Nombre>Alex</Nombre>
+            <Apellido>Casadevall</Apellido>
+        </Persona>
+        Recibo los datos
+        Transformo en obj de JS
+        --> {nombre: "Alex", apellido: "Casadevall"}
+
+    JSON (JavaScript Object Notation): 
+        {"nombre":"Alex", "apellido":"Casadevall"} --> Obj de JS
+
+
+    { [ Base de datos: MYSQL ] ---- [API] } <-- JSON --> [Web Apps]
+
+    Protocolo HTTP
+        -> HTTP Verbose
+            -> GET
+            -> POST
+            -> PUT
+            -> DELETE
+
+    HTTP Verbose - rel - Op. CRUD
+
+    CASO - LOGIN a FACEBOOK
+
+    1. Front: Pantalla de Login
+    2. Submit: Ingresamos los datos y le damos clic en ingresar
+    3. FLOWS: 
+        -> Login resulta success
+        -> Login resulta error
+            -> Va a devolver una accion al Front
+
+    API, HTTP Verbose?
+
+        1. Llenamos los campos
+            -> Usuario, Clave
+        2. Dar clic en Ingresar
+            -> Obteniendo los campos: Usuario y Clave del form
+            -> Vamos a enviar al servidor de facebook
+                -> {usuario, clave} ---> API de facebook
+                -> Enviar (abro - Request): POST
+        3. API de facebook recibe la informacion
+            -> Luego la procesa
+            -> Al procesar decide entre los dos flujos (success, error)
+            -> Cualquiera de los flujos va a enviar una respuesta
+            al frontEnd
+                -> Response
+        
+        POST API de facebook
+        -> Envio una Request (tipo JSON)
+            {
+                usuario: "asd",
+                clave: "asd"
+            }
+        -> Luego de procesar, recibe una Response
+            {
+                success: "asd"
+            }
+            o
+            {
+                error: "asd"
+            }
+
+    CASO MURO FB: 
+        -> Listado de posts de todos los amigos de fb
+        -> GET API facebook 
+        -> Response: 
+            [
+                {publicacion, ... },
+                {publicacion, ...}
+            ]
+
+        Path Params     /foo/hola/mundo         -> REST
+        Query Params    /foo?a=hola&b=mundo     -> URI API
+
+    CASO ACTUALIZAR PERFIL:
+        -> El usuario ya esta creado
+        -> PUT API facebook
+        -> Request
+            {
+                obj de usuario
+            }
+        -> Response: 
+            {
+                success: "asd"
+            }
+            o
+            {
+                error: "asd"
+            }
+
+    CASO ELIMINAR FOTO DE GALERIA: 
+        -> El usuario quiere eliminar una foto
+        -> DELETE API de facebook
+        -> Path param con la ID de la foto a eliminar
+        -> Response: 
+            {
+                success: "asd"
+            }
+            o
+            {
+                error: "asd"
+            }
+
+    Op. CRUD 
+        -> Create, Read, Update, Delete
+        POST   : Create
+        GET    : Read
+        PUT    : Update
+        DELETE : Delete 
+        
+        -> Headers
+        -> Authentication
+        -> NodeJS instalado (Version: LTS)
+        

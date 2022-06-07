@@ -1,0 +1,199 @@
+Intro. API Rest
+
+    -> API: {[MYSQL: Base de datos] <----> [Node: Backend]} <-- HTTP --> [App de cliente]
+
+    -> Op. CRUD
+        -> Create : POST
+        -> Read   : GET
+        -> Update : PUT
+        -> Delete : DELETE
+
+    Correlacion del CRUD con el protocolo HTTP
+
+        -> HTTP Verbose
+            -> POST
+            -> GET
+            -> PUT
+            -> DELETE
+
+    Monolitos: 
+        -> App con un lang. scripting que corre pegado a una base de datos
+            -> WordPress:
+                -> PHP con server render que consulta a una db MYSQL
+
+        -> Std. de datos
+            -> XML
+
+            AWS: Amazon web services
+                -> XML
+
+            GCP: Google cloud platform
+                -> JSON
+
+        HTTP & JSON
+            -> JSON: JavaScript Obj Notation
+                -> Documento type: JSON
+
+        JSON // XML
+            
+            Abs. de una persona:
+                -> Nombre, Edad
+                    -> <Persona>
+                        <Nombre>Alex</Nombre>
+                        <Edad>30</Edad>
+                       </Persona>
+
+                -> {"nombre":"Alex", "edad":"30"}
+
+        Lang. de programacion
+            -> Funcion: Parser
+                -> Std. datos ---> Parser ( ---> datos nativos )
+
+               Parseo: T_xml > T_json
+
+        EJEMPLO #1: Obtener una lista de clientes con nombre, email, tipo
+
+            -> API : Estado
+                -> URL
+                -> Metodo
+                -> Request
+                -> Response
+
+            Estado: Clientes Listar
+                -> url:    api.com/clientes
+                -> metodo: GET
+                -> Request
+                    -> Headers
+                    -> Payload: null
+                -> Response: 
+                    -> Body: 
+                        [
+                            {"id": "001", "nombre":"Alex", "email":"alex@gmail.com","tipo":"final"},
+                            ...
+                        ]
+
+         EJEMPLO #2: Crear un cliente nuevo con las propiedades nombre, email, tipo
+
+            Estado: Clientes Crear
+                -> url:     api.com/clientes
+                -> metodo:  POST
+                -> Request
+                    -> Headers
+                    -> Payload: {
+                        "nombre":"Juan",
+                        "email":"juan@gmail.com",
+                        "tipo":"final"
+                    }
+                -> Response
+                    -> Body
+                        -> Algo que represente que esta OK {
+                            "success": true
+                        }
+
+                        -> Algo que represente error {
+                            error: "mensaje"
+                        }
+        
+        EJEMPLO #3: Editar un cliente por ID con las propiedades nombre, email, tipo
+
+            Estado: Clientes Editar
+
+                -> url:     api.com/clientes/:id ---> api.com/clientes/001
+                -> metodo:  PUT
+                -> Request
+                    -> Headers
+                    -> Payload: {
+                        "nombre":"Alex",
+                        "email":"alex@gmail.com",
+                        "tipo":"empresa"   ---> Estoy cambiando el valor de la prop. tipo
+                    }
+                -> Response
+                    -> Body
+                        -> Algo que represente que esta OK {
+                            "success": true
+                        }
+
+                        -> Algo que represente error {
+                            error: "mensaje"
+                        }
+
+        EJEMPLO #4: Eliminar un cliente por ID
+
+            -> Estado: Clientes Eliminar
+                -> url: api.com/clientes/:id  ----> api.com/clientes/001
+                -> metodo: DELETE
+                -> Request
+                    -> Headers
+                    -> Payload: null
+                -> Response 
+                    -> Body
+                        -> Algo que represente que esta OK {
+                            "success": true
+                        }
+
+                        -> Algo que represente error {
+                            error: "mensaje"
+                        }
+    
+    API: EJERCICIO RAPIDO #1: Buscar personas por rango de edad
+        -> Ejemplo quiero buscar entre 10 y 18 anios
+        -> Input: [10, 18]
+        -> Output va a ser un array: {
+            personas: [
+                {...},
+                ...
+            ]
+        }
+        -> Agreguen la funcion de busqueda en el servicio que ya existe
+
+        Estado: Buscar Personas
+            -> url:     api.com/buscar-persona/:min/:max
+                            -> :parametro ---> path param variable en la url
+                            -> Ejemplo: api.com/buscar-persona/10/18
+            -> metodo: GET
+            -> Request: 
+                -> Headers
+                -> Payload: null
+            -> Response:
+                personas: [
+                    {...},
+                    ...
+                ]
+    
+    API: EJEMPLO #1: Servicio para buscar una persona por sus iniciales
+        -> Iniciales --> Nombre, Apellido
+
+        Input: {
+            iniciales: {
+                nombre: 'A',
+                apellido: 'C'
+            }
+        }
+
+        Output: {
+            personas: [
+                {...},
+                ...
+            ]
+        }
+
+        Estado: Buscar Persona Iniciales
+
+            -> url:     api.com/buscar-personas
+            -> metodo:  POST
+            -> Request
+                -> Headers
+                -> Payload: {
+                    nombre: 'A',
+                    apellido: 'C'
+                }
+            -> Response: 
+                personas: [
+                    {...},
+                    ...
+                ]
+
+        -> Gestionar y documentar API
+            -> Postman
+                -> Bajar a la pc
+                -> Utilizar como App de Chrome

@@ -1,0 +1,55 @@
+Estado: Buscar Persona Iniciales
+
+    -> url:     api.com/buscar-personas
+    -> metodo:  POST
+    -> Request
+        -> Headers
+        -> Payload: {
+            nombre: 'A',
+            apellido: 'C'
+        }
+    -> Response: 
+        personas: [
+            {...},
+            ...
+        ]
+
+    
+    -> Crear el backend con ExpressJS
+        -> Setup
+            -> npm i --save express cors body-parser (npm i)
+                -> modulos: 
+                    -> express
+                    -> cors
+                    -> body-parser
+            -> setup del backend en el app.js
+
+    Documentacion: https://expressjs.com/en/starter/hello-world.html
+
+
+    EJERCICIO RAPIDO #1: Crear una API que al pasar el nombre
+    devuelve {saludo}, + nombre
+        -> "Hola, {nombre}"
+        -> El nombre lo vamos a ingresar a traves de un path param
+            -> a traves de un GET
+
+        Estado: 
+            - url: /saludo/:nombre
+            - metodo: GET
+            - Payload: null
+            - Response
+                -> 
+                    si url /saludo/alex
+                    {
+                        saludo: "Hola, alex"
+                    }
+
+    Herramienta: nodemon
+        -> npm i --save nodemon
+
+
+        Op. CRUD
+            -> Create : POST
+            -> Read   : GET
+            -> Update : PUT
+            -> Delete : DELETE

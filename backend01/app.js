@@ -1,10 +1,40 @@
 const Persona = require('./services/persona.service')
+// req. modulo de express para hacer el setup del back
+const express       = require('express')
+const bodyParser    = require('body-parser')
+// Inicializar el backend dentro de una app
+const app     = express()
+const port    = 3000
 
-const test1 =  { nombre: 'A', apellido: 'C'}
-console.log("Test 1 :: ", Persona.buscarPersonaIniciales(test1))
+app.use(bodyParser.json())
 
-const test2 =  { nombre: 'P', apellido: 'F'}
-console.log("Test 2 :: ", Persona.buscarPersonaIniciales(test2))
+// Def. estado
+// app.[metodo](url, callback)
+app.get('/', (req, res) => {
+    // Entrega el response
+    // res: response
+    // .send : enviar el JSON al front
+    res.send({
+        saludo: "Hola Mundo!"
+    })
+})
 
-const test3 =  { nombre: 'X', apellido: 'Z'}
-console.log("Test 3 :: ", Persona.buscarPersonaIniciales(test3))
+// 
+app.get('/saludo/:nombre', (req, res) => {
+    // /saludo/:pepe --> req.params.pepe
+    const nombre = req.params.nombre
+    res.send({
+        saludo: "Hola, " + nombre
+    })
+})
+
+app.post('/buscar-persona', (req, res) => {
+    const iniciales = req.body
+    console.log("obj :", iniciales)
+    const personas  = Persona.buscarPersonaIniciales(iniciales)
+    res.send(personas)
+})
+
+app.listen(port, (req, res) => {
+    console.log("server running :: ", port)
+})

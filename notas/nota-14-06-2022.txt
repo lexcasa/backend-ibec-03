@@ -53,3 +53,33 @@ Estado: Buscar Persona Iniciales
             -> Read   : GET
             -> Update : PUT
             -> Delete : DELETE
+
+    Para correr el backend: 
+
+        node app.js
+        nodemon app.js
+
+    EJERCICIO RAPIDO #2: Buscar personas por rango de edad
+        -> Ejemplo quiero buscar entre 10 y 18 anios
+        -> Input: [10, 18]
+        -> Output va a ser un array: {
+            personas: [
+                {...},
+                ...
+            ]
+        }
+        -> Agreguen la funcion de busqueda en el servicio que ya existe
+
+        Estado: Buscar Personas
+            -> url:     api.com/buscar-persona/:min/:max
+                            -> :parametro ---> path param variable en la url
+                            -> Ejemplo: api.com/buscar-persona/10/18
+            -> metodo: GET
+            -> Request: 
+                -> Headers
+                -> Payload: null
+            -> Response:
+                personas: [
+                    {...},
+                    ...
+                ]

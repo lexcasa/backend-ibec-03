@@ -1,0 +1,75 @@
+EJERCICIO RAPIDO #0: Buscar personas por rango de edad
+        -> Ejemplo quiero buscar entre 10 y 18 anios
+        -> Input: [10, 18]
+        -> Output va a ser un array: {
+            personas: [
+                {...},
+                ...
+            ]
+        }
+        -> Agreguen la funcion de busqueda en el servicio que ya existe
+
+        Estado: Buscar Personas
+            -> url:     api.com/buscar-persona/:min/:max
+                            -> :parametro ---> path param variable en la url
+                            -> Ejemplo: api.com/buscar-persona/10/18
+            -> metodo: GET
+            -> Request: 
+                -> Headers
+                -> Payload: null
+            -> Response:
+                personas: [
+                    {...},
+                    ...
+                ]
+    
+EJERCICIO RAPIDO #1: Definir un servicio calculadora
+    Sumatoria
+    -> Estado: 
+        -> URL: /calculadora/sumatoria
+        -> Metodo: POST
+        -> Input: 
+            {
+                elementos: [
+                    10,
+                    50,
+                    30,
+                    11
+                ]
+            }
+        -> Output: 
+            {
+                resultado: 101
+            }
+    
+    Exclusion
+    -> Estado: 
+        -> URL: /calculadora/exclusion
+        -> Metodo: POST
+        -> Input: {
+            vector01: [10, 20, 11],
+            vector02: [10, 15, 12]
+        }
+        -> Output: {
+            resultado: [
+                20,
+                11,
+                15,
+                12
+            ]
+        }
+    Interseccion
+     -> Estado: 
+        -> URL: /calculadora/interseccion
+        -> Metodo: POST
+        -> Input: {
+            vector01: [10, 20, 11],
+            vector02: [10, 15, 11]
+        }
+        -> Output: {
+            resultado: [
+                10,
+                11
+            ]
+        }
+    

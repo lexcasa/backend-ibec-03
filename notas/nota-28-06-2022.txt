@@ -1,0 +1,79 @@
+Input: 
+    v1: [10, 20, 11],
+    v2: [10, 15, 12]
+
+    [
+        20,
+        11,
+        15,
+        12
+    ]
+
+    ALGORITMO #1: 
+
+    v3 = []
+    v1 x v2
+
+        CASO v1
+        -> v1(0) esta en v2(0, ... N)
+            -> True
+                -> No 
+            -> False
+                -> v3.push( v1(0) )
+        -> v1(1) esta en v2(0, ... N)
+                -> v3 (20, )
+        -> v1(2) esta en v2(0, ... N)
+                -> v3 (20, 11)
+
+        CASO v2
+
+        -> v2(0) esta en v1(0, ... N)
+            -> True
+                -> No 
+            -> False
+                -> v3.push( v2(0) )
+        -> v2(1) esta en v1(0, ... N)
+                -> v3 (20, 11, 15)
+        -> v2(2) esta en v1(0, ... N)
+                -> v3 (20, 11, 15, 12)
+
+    ALGORITMO #2
+        -> v_tmp = v1 + v2
+        -> v3    = []
+
+            -> Contar repetidos
+                -> Obj = {}
+                FOR i=0, N
+
+                    -> SI v_tmp(i) esta en v_tmp
+                        -> Obj[v_tmp(i)] = Obj[v_tmp(i)] ? Obj[v_tmp(i)]++ : 0
+
+                        {
+                            10: 2,
+                            15: 1,
+                            11: 1,
+                            ...
+                        } 
+
+                FOR key in Obj
+                    -> SI Obj(key) === 1
+                        -> v3.push(key)
+
+vector01: [10, 20, 11, 11, 11, 10],
+vector02: [10, 15]
+
+    -> v1 x v2
+        -> v1 (i) esta en v2 (0, ... N)
+            -> Verificar que v1(i) exista solo una vez en v3
+            -> v3.push(
+                v1(i)
+            )
+    
+    -> v2 x v1
+        -> v1 (i) esta en v2 (0, ... N)
+            -> Verificar que v1(i) exista solo una vez en v3
+            -> v3.push(
+                v1(i)
+            )
+
+    -> v3: [10]

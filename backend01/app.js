@@ -62,6 +62,14 @@ app.post('/calculadora/inclusion', (req, res) => {
     })
 })
 
+app.post('/calculadora/generador', (req, res) => {
+    const vectores = req.body
+    const response  = Calculadora.generador(vectores.largo, vectores.cantidad)
+    res.send({
+        resultado: response
+    })
+})
+
 app.listen(port, (req, res) => {
     console.log("server running :: ", port)
 })

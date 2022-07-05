@@ -35,6 +35,18 @@ const Calculadora = {
             }
         }
         return v3
+    },
+    generador: function (largo, cantidad){
+        let randArr = []
+        for(let i = 0; i < parseInt(cantidad); i++){
+            let randNum = ""
+            for (let j = 0; j < parseInt(largo); j++){
+                let rand = Math.floor(Math.random() * parseInt(largo))
+                randNum  += rand
+            }
+            randArr.push(randNum)
+        }
+        return randArr
     }
 }
 

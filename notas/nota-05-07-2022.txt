@@ -61,3 +61,5 @@
                 "aacd567890",
             ]
         }
+
+        (str + num_random).length <= largo 

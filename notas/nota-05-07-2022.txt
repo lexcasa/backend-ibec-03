@@ -1,0 +1,63 @@
+- API: 
+    1. Definir los estados
+        -> Input
+            -> GET, POST, PUT, DELETE
+        
+        -> Output
+            -> Proc: Service
+                -> Proc: app.js
+                    -> res.send(params)
+                        -> params: 
+                            -> Objeto
+                            -> Array
+                            -> String
+
+    2. Algoritmo con el servicio
+    3. Integrar el servicio con el app.js
+    MVC
+        -> Model: est. de datos
+        -> View: app.js
+            -> JSON
+        -> Ctrl: services
+
+    Input/Output
+        -> req/res
+            -> req
+                -> Input: req.body   -> Obj*
+                -> Input: req.params -> Obj
+            -> res
+                -> Output: res.send(params)
+
+    services <--- require/routes --> app.js <---- HTTP ----> <Postman: Cliente>
+
+    EJERCICIO RAPIDO #1: Generador de numeros aleatorios
+        -> Input: 
+            {
+                "largo": 10,
+                "cantidad": 5
+            }
+
+        -> Output: {
+            resultado: [
+                1234567890,
+                1234567810,
+                1234567390,
+                1234567811,
+                2234567890
+            ]
+        }
+    
+    EJERCICIO RAPIDO #2: Generador de numeros aleatorios y patrones
+        -> Input: 
+            {
+                "largo": 10,
+                "cantidad": 2,
+                "str": "abcd"
+            }
+
+        -> Output: {
+            resultado: [
+                "accd567890",
+                "aacd567890",
+            ]
+        }

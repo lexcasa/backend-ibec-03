@@ -1,4 +1,5 @@
 const Persona = require('./services/persona.service')
+const Calculadora = require('./services/calculadora.service')
 // req. modulo de express para hacer el setup del back
 const express       = require('express')
 const bodyParser    = require('body-parser')
@@ -33,6 +34,32 @@ app.post('/buscar-persona', (req, res) => {
     console.log("obj :", iniciales)
     const personas  = Persona.buscarPersonaIniciales(iniciales)
     res.send(personas)
+})
+
+// Calculadora
+// Inputs: POST
+//  -> 
+/*
+     {
+        vector01: [10, 20, 11],
+        vector02: [10, 15, 12]
+    }
+*/
+// Routes 
+app.post('/calculadora/exclusion', (req, res) => {
+    const vectores = req.body
+    const response  = Calculadora.exclusion(vectores.vector01, vectores.vector02)
+    res.send({
+        resultado: response
+    })
+})
+
+app.post('/calculadora/inclusion', (req, res) => {
+    const vectores = req.body
+    const response  = Calculadora.inclusion(vectores.vector01, vectores.vector02)
+    res.send({
+        resultado: response
+    })
 })
 
 app.listen(port, (req, res) => {

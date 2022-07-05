@@ -40,8 +40,9 @@ const Calculadora = {
 
 let vect01 = [20, 10, 11]
 let vect02 = [10, 15, 12]
+vect01.concat(vect02)
 
-console.log( Calculadora.exclusion(vect01, vect02) )
+console.log( Calculadora.exclusion(vect01, vect02), vect01.concat(vect02) )
 console.log( Calculadora.inclusion(vect01, vect02) )
 
 module.exports = Calculadora

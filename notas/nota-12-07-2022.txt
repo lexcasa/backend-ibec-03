@@ -1,0 +1,28 @@
+EJERCICIO RAPIDO #2: Generador de numeros aleatorios y patrones
+        -> Input: 
+            {
+                "largo": 10,
+                "cantidad": 2,
+                "str": "abcd"
+            }
+
+        -> Output: {
+            resultado: [
+                "accd567890",
+                "aacd567890",
+            ]
+        }
+
+        (str + num_random).length <= largo
+
+        str = "abcd" -> length: 4
+
+        strNueva 
+            -> for i = 0, i < 4
+                strNueva += str[rand]
+
+        rand * [n0, ..., nN]
+            -> [n0 * rand, ..., nN * rand]
+
+        rand = Math.floor( Math.random() * str.length )
+

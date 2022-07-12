@@ -70,6 +70,14 @@ app.post('/calculadora/generador', (req, res) => {
     })
 })
 
+app.post('/calculadora/generador/plus', (req, res) => {
+    const vectores = req.body
+    const response  = Calculadora.generadorPlus(vectores.largo, vectores.str, vectores.cantidad)
+    res.send({
+        resultado: response
+    })
+})
+
 app.listen(port, (req, res) => {
     console.log("server running :: ", port)
 })

@@ -36,6 +36,14 @@ const Calculadora = {
         }
         return v3
     },
+    generadorStr: function (str){
+        let newStr = ""
+        for (let i = 0; i < str.length; i++){
+            let rand = Math.floor( Math.random() * str.length)
+            newStr += str[rand]
+        }
+        return newStr
+    },
     generador: function (largo, cantidad){
         let randArr = []
         for(let i = 0; i < parseInt(cantidad); i++){
@@ -47,6 +55,18 @@ const Calculadora = {
             randArr.push(randNum)
         }
         return randArr
+    },
+    generadorPlus: function (largo, str, cantidad){
+        let largoTotal = str.length < parseInt(largo) ? parseInt(largo) - str.length : 0
+        // 
+        if(largoTotal > 0){
+            let randArr = this.generador(largoTotal, cantidad)
+            for (let i = 0; i < randArr.length; i++){
+                randArr[i] = this.generadorStr(str) + randArr[i]
+            }
+            return randArr
+        }
+        return []
     }
 }
 

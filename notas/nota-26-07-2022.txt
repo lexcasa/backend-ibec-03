@@ -1,0 +1,30 @@
+Operaciones CRUD: 
+    - Create: POST
+    - Read: GET
+    - Update: PUT
+    - Delete: DELETE
+
+Modelo: 
+    Clientes: 
+        -> Documento (unico dentro del array)
+        -> Nombre
+        -> Email
+        -> Tipo [final, empresa]
+        -> Activo [0, 1]
+            -> 0 es inactivo
+            -> 1 es activo
+
+    EJERCICIO RAPIDO #1: 
+        -> GET, /clientes para obtener todos los clientes
+            -> Array de clientes (de ejemplo) dentro del servicio
+            
+        -> POST, /clientes agregar un cliente nuevo a ese array
+            -> Input: Cliente Nuevo
+            -> Output: Array con los clientes que ya existen y el cliente nuevo
+
+        -> PUT, /clientes 
+            -> Voy actualizar el cliente por Documento
+            -> Input: Cliente con documento
+            -> Output: Array con los clientes verificando que existe un cliente editado
+
+        

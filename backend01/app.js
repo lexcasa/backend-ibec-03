@@ -1,5 +1,7 @@
 const Persona = require('./services/persona.service')
 const Calculadora = require('./services/calculadora.service')
+const Cliente    = require('./services/cliente.service')
+
 // req. modulo de express para hacer el setup del back
 const express       = require('express')
 const bodyParser    = require('body-parser')
@@ -73,6 +75,19 @@ app.post('/calculadora/generador', (req, res) => {
 app.post('/calculadora/generador/plus', (req, res) => {
     const vectores = req.body
     const response  = Calculadora.generadorPlus(vectores.largo, vectores.str, vectores.cantidad)
+    res.send({
+        resultado: response
+    })
+})
+
+app.get('/clientes', (req, res) => {
+    const response = Cliente.todos()
+    res.send(response)
+})
+
+app.post('/clientes', (req, res) => {
+    const cliente = req.body
+    const response = Cliente.nuevo(cliente)
     res.send({
         resultado: response
     })

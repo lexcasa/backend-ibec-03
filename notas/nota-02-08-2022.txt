@@ -1,0 +1,65 @@
+- Base de datos
+    - MYSQL
+        -> Base de datos relacional
+
+    - Obj: Persistir informacion en el tiempo
+        
+        Base de datos: 
+            - Resuelve dos problemas: 
+                -> Informacion dinamica
+                -> Manipular la informacion
+
+        - DB resuelve el problema general
+            -> Agenda telefonica
+
+        - DB resuelve el problema local
+            -> Facebook
+            -> Chat
+    
+    BASE DE DATOS:
+
+        -> Informacion dinamica: Servidor de base de datos (XAMPP) dentro de un servidor web
+            -> con un disco
+
+        -> Manipular la informacion:
+            -> Soporte las operaciones CRUD
+                -> Create
+                -> Read
+                -> Update
+                -> Delete
+    
+    -> Objetivo de la base de datos
+        -> Organizar
+            -> Estandarizar
+                -> Optimizar
+    
+    EJEMPLO: Tengo un almacen que vendo variedades de productos a clientes finales
+    y quiero ofrecer una promo a mis mejores clientes
+
+    -> Organizar es entender los actores del problema
+        -> Modelar la realidad en una abstraccion
+            -> Entidades
+
+                -> Producto: (Cod, Nombre, Marca)
+                -> Cliente: (Nombre, Celular, Barrio)
+
+            -> Relaciones:
+
+                -> Ventas: (Cliente, Producto, Cantidad, Precio, Fecha)
+        
+        SIMULAR: 
+
+            -> Agregar productos: 
+                (123, "Leche Entera", "Calcar")
+                (111, "Manteca", "Conaprole")
+            
+            -> Agregar clientes: 
+                ("Alex", 098123123, "Cordon")
+                ("Juan", 092123123, "Cordon")
+
+            -> Generar ventas: 
+
+                ("Alex", "Leche Entera", 10, 60, 02-08-2022)
+                ("Juan", "Manteca", 5, 120, 02-08-2022)
+                ...
+            

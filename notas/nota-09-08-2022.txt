@@ -1,0 +1,84 @@
+EJEMPLO: Tengo un almacen que vendo variedades de productos a clientes finales
+    y quiero ofrecer una promo a mis mejores clientes
+
+    -> Organizar es entender los actores del problema
+        -> Modelar la realidad en una abstraccion
+            -> Entidades
+
+                -> Producto: (Cod, Nombre, Marca)
+                -> Cliente: (Nombre, Celular, Barrio)
+
+            -> Relaciones:
+
+                -> Ventas: (Cliente, Producto, Cantidad, Precio, Fecha)
+        
+        SIMULAR: 
+
+            -> Agregar productos: 
+                (123, "Leche Entera", "Calcar")
+                (111, "Manteca", "Conaprole")
+            
+            -> Agregar clientes: 
+                ("Alex", 098123123, "Cordon")
+                ("Juan", 092123123, "Cordon")
+
+            -> Generar ventas: 
+
+                ("Alex", "Leche Entera", 10, 60, 02-08-2022)
+                ("Juan", "Manteca", 5, 120, 02-08-2022)
+                ...
+    PROBLEMA: 
+        - Podiamos tener informacion duplicada
+        - Necesitamos generar la unicidad dentro de los registros
+
+            -> Claves: 
+                -> Primarias: PK Primary Key
+                -> Foreanes: FK
+                -> Unicas: UK
+
+    EJEMPLOS: 
+        -> Campo ID
+            -> Prop: PK
+            -> Valor: A_I: Auto incremento
+
+            -> Cliente: (ID, Nombre, Celular, Barrio)
+                -> Datos: 
+                    (1, Alex, 123213, Cordon)
+
+            -> Producto: (ID, Cod, Nombre, Marca)
+
+            -> Foraneas: 
+                Ventas: (Cliente, Producto, Cantidad, Precio, Fecha)
+
+                    -> (IdCliente, IdProducto, Cantidad, Precio, Fecha)
+                        -> (1, 1, 10, 200, 2022-08-09)
+
+                            FK: IdCliente, 
+                            FK: IdProducto
+                                -> Restriccion
+                    -> Problema, como reconstruir los datos de esta manera:
+                        -> ("Alex", "Leche Entera", 10, 60, 02-08-2022)
+        -> Claves UK
+            -> Son claves que generan consistencia: 
+                Que los datos no se repitan por X condicion de negocio
+                    -> cod
+                    -> documento
+                    -> rut
+                    -> etc
+
+            Queremos decir que el codigo no se repite en todo el universo de registro
+                ->  (111, "Leche Entera", "Calcar")
+                ->  (111, "Pan", "Calcar")
+    
+    EJERCICIO RAPIDO #1: 
+        -> Producto: (Cod, Nombre, Marca)
+         CRUD: 
+            -> {
+                Cod: "",
+                Nombre: "",
+                Marca: ""
+            }
+        -> GET /tienda/productos
+            -> Array de productos dado el modelo
+        -> POST /tienda/productos
+            -> Array crear un item y devolver la lista

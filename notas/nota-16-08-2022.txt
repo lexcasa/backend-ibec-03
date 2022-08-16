@@ -1,0 +1,121 @@
+EJEMPLO: Tengo un almacen que vendo variedades de productos a clientes finales
+    y quiero ofrecer una promo a mis mejores clientes
+
+-> Clientes: (ID, Nombre, Celular, Barrio)
+-> Productos: (ID, Cod, Nombre, Marca)
+-> Ventas: (IdCliente, IdProducto, Cantidad, Precio, Fecha)
+
+-> Base de datos 
+    -> Fund. de estructura
+        -> Estructura de tablas y sus columnas
+            -> Crear las tablas en una base de datos
+    -> Fund. de datos
+        -> Soporte de las op. CRUD
+            -> Querys
+                -> EJEMPLO: Crear registro de clientes
+                    -> Q1: INSERT INTO Clientes (Nombre, Celular, Barrio)
+                       VALUES ("Alex", "123213", "Cordon")
+
+                    -> Read: 
+                        -> Obtener todos los registros
+                            -> Q2: SELECT * FROM Clientes
+
+                        -> Obtener un registro por la ID del cliente
+                            -> SELECT * FROM Clientes
+                               WHERE ID = 1
+                    
+                    -> Update: 
+                        -> Actualizar todos los registros dado una columna
+                            -> UPDATE nombre_tabla SET col1 = val1, ..., colN = valN
+
+                        -> Actializar un regitro/s dado una condicion
+                            -> UPDATE nombre_tabla SET col1 = val1, ..., colN = valN
+                               WHERE col_i = val_i 
+                    
+                    -> Delete: 
+                        -> Eliminar todos los registros de una tabla
+                            -> DELETE FROM nombre_tabla
+
+                        -> Eliminar un registro dada la cond. de una columna y su valor
+                            -> DELETE FROM nombre_tabla WHERE ID = 2
+
+        Q1: 
+            -> Donde esta la ID?
+                -> No necesitamos la ID por que se genera automaticamente
+
+            -> Existe una forma para insertar en cualquier tipo de tabla?
+                -> INSERT INTO nombre_tabla (Col1, col2, ..., ColN)
+                   VALUES (Val1, val2, ..., valN)
+
+            -> Correlacionar el valor de c/columna con su tipo de dato
+                -> Tipos de datos: 
+                    -> int
+                    -> text
+                    -> datetime
+                    -> decimal (10, 2)
+
+            -> Bajar el XAMPP
+                -> PHPMYADMIN y base de datos MYSQL
+        
+        Q2:
+            -> Que quiere decir el asterisco?
+                -> * : todas las columnas de la tabla
+            -> 
+                SELECT col1, col2, ..., colN FROM nombre_tabla
+            
+            ->  SELECT col1, col2, ..., colN FROM nombre_tabla
+                WHERE (col_i = val_i OR, AND, NOT ... )
+
+    REPORTES: 
+        -> (Producto, Cantidad, Precio)
+            -> QUIERO: ("Leche Calcar", 20, 100)
+                -> SELECT 
+                        CONCAT(productos.Nombre, ' ', productos.Marca) AS Producto,
+                        ventas.Cantidad,
+                        ventas.Precio
+                    FROM `ventas`
+                    JOIN productos ON ventas.IdProducto = productos.ID
+
+            -> TENGO: (1, 20, 100)
+
+        -> (Producto, Cantidad, SubTotal)
+            -> SELECT 
+                    CONCAT(productos.Nombre, ' ', productos.Marca) AS Producto,
+                    ventas.Cantidad,
+                    (ventas.Cantidad * ventas.Precio) AS SubTotal
+                FROM `ventas`
+                JOIN productos ON ventas.IdProducto = productos.ID
+
+        -> (Cliente, Cantidad, SubTotal)
+
+            -> Producto
+                -> Nombre + Marca ---> Producto
+
+                Genero un alias con el resultado de una columna dinamica
+                    
+                    SELECT
+                        CONCAT(Nombre, ' ', Marca) AS Producto,
+                        Cod
+                    FROM `productos`
+            
+            Cruzamientos: 
+                -> Juntar dos o mas tablas a partir de sus claves Foraneas
+                
+                BASICO: 
+
+                    SELECT * FROM tabla_A
+                    JOIN tabla_B ON tabla_A.fk_tabla_b = tabla_B.ID
+
+
+                    SELECT * FROM tabla_A
+                    JOIN tabla_B ON tabla_A.fk_tabla_b = tabla_B.ID
+                    JOIN tabla_C ON tabla_A.fk_tabla_c = tabla_C.ID
+                    ...
+                    JOIN tabla_N ON tabla_A.fk_tabla_N = tabla_N.ID
+
+
+                    SELECT
+                        tabla_A.*,
+                        tabla_B.*
+                    FROM tabla_A
+                    JOIN tabla_B ON tabla_A.fk_tabla_b = tabla_B.ID

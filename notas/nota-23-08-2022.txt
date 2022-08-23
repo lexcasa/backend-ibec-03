@@ -1,0 +1,7 @@
+- CRUD de clientes
+    -> GET /clientes
+        -> DB: SELECT * FROM clientes
+    -> Servicio:
+        mdb.service
+            -> depende de mysql
+                -> npm i --save mysql

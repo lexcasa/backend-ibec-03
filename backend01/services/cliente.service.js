@@ -1,23 +1,11 @@
-const clientes = [
-    {
-        documento: "123",
-        nombre: "Alex",
-        email: "alex@gmail.com",
-        tipo: "final",
-        activo: 1
-    },
-    {
-        documento: "111",
-        nombre: "Juan",
-        email: "juan@gmail.com",
-        tipo: "final",
-        activo: 1
-    }
-]
+const mdb = require('./mdb.service')
 
 const Cliente = {
-    todos: function (){
-        return clientes
+    todos: async function (){
+        const sql = `
+            SELECT * FROM clientes
+        `
+        return mdb.query(sql, [])
     },
     nuevo: function (cliente){
         const clientesNew = clientes

@@ -1,6 +1,7 @@
 const Persona = require('./services/persona.service')
 const Calculadora = require('./services/calculadora.service')
 const Cliente    = require('./services/cliente.service')
+const Producto   = require('./services/producto.service')
 
 // req. modulo de express para hacer el setup del back
 const express       = require('express')
@@ -80,10 +81,11 @@ app.post('/calculadora/generador/plus', (req, res) => {
     })
 })
 
-app.get('/clientes', (req, res) => {
-    const response = Cliente.todos()
+app.get('/clientes', async (req, res) => {
+    const response = await Cliente.todos()
     res.send(response)
 })
+
 
 app.post('/clientes', (req, res) => {
     const cliente = req.body
@@ -91,6 +93,11 @@ app.post('/clientes', (req, res) => {
     res.send({
         resultado: response
     })
+})
+
+app.get('/productos/reporte', async (req, res) => {
+    const response = await Producto.reporteProductos()
+    res.send(response)
 })
 
 app.listen(port, (req, res) => {

@@ -8,19 +8,22 @@ const Cliente = {
         return mdb.query(sql, [])
     },
     nuevo: function (cliente){
-        const clientesNew = clientes
-        // Verificar que no exista el mismo documento
-        let find = false
-        clientesNew.map( (item, i) => {
-            if(item.documento == cliente.documento){
-                find = true
-            }
-        })
-        if(!find){
-            clientesNew.push(cliente)
-            return clientesNew
-        }
-        return 'Error al ingresar cliente'
+        const sql = `
+            INSERT INTO clientes (Nombre, Celular, Barrio)
+            VALUES
+            (?, ?, ?)
+        `
+        return mdb.query(sql, [cliente.nombre, cliente.celular, cliente.barrio])
+    },
+    editar: function (cliente){
+        const sql = `
+            UPDATE clientes SET 
+                Nombre = ?,
+                Celular = ?,
+                Barrio = ?
+            WHERE ID = ?
+        `
+        return mdb.query(sql, [cliente.nombre, cliente.celular, cliente.barrio, cliente.ID])
     }
 }
 module.exports = Cliente

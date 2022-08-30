@@ -1,0 +1,47 @@
+- Integrar las OP. CRUD la API
+    -> Clientes
+        -> Create: 
+            -> POST /
+            -> INSERT INTO
+        -> Update
+            -> PUT /
+            -> UPDETE, SET
+        -> Read
+            -> GET /
+            -> SELECT
+                -> Mas de una tabla
+                    SELECT ...
+                    JOIN ...
+        -> Delete
+            -> DELETE /
+            -> DELETE FROM ...
+
+    AUTENTICACION: 
+        -> tabla de usuarios
+            -> email y clave
+            -> Necesitamos saber si el usuario que trata de loguear a mi API existe o no
+            -> usuarios
+                -> (ID, email, clave, tipo)
+                    -> clave -> hash -> MD5
+
+                    SELECT * FROM usuarios
+                    WHERE email = ? AND clave = MD5(?)
+
+        -> Proteccion de rutas
+            -> GET /clientes sea publico
+            -> POST, PUT solo usuarios de tipo admin pueda invocar
+
+            -> Como la API sabe que usuario es?
+                -> Se comunica a traves del header
+                    -> token
+                        -> dependiendo de su valor
+                            -> vamos a verificar si el usuario es un admin o no
+                            -> el token es un hash
+                        -> token es el usuario encriptado
+                            -> podemos desencriptar para saber que usuario es
+                                -> JWT: json web token
+            Middleware
+                -> PETICION --- Middleware --- RESPUESTA DE LA API
+
+                -> Instalar el jsonwebtoken
+                    -> npm i --save jsonwebtoken
